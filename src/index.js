@@ -46,8 +46,14 @@ function checkGameOver(){
     }else if(invaderController.collideWith(player)){
         isGameOver = true;
     }else if(invaderController.invadersRows.length==0){
-        isGameOver = true;
-        didWin = true;
+        //isGameOver = true;
+        //didWin = true;
+        invaderController.createInvaders();
+        invaderController.moveDownTimerDefault = invaderController.moveDownTimerDefault*1.5;
+        invaderController.fireBulletTimerDefault =  invaderController.fireBulletTimerDefault*0.5;
+        invaderController.defaultXVelocity = invaderController.defaultXVelocity*1.5;
+        invaderController.defaultYVelocity = invaderController.defaultYVelocity*1.5;
+        invaderController.updateLevel();
     }
 }
 

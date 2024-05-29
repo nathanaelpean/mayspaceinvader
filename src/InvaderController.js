@@ -7,11 +7,12 @@ export default class InvaderController {
     yVelocity = 0;
     defaultXVelocity = 1;
     defaultYVelocity = 1;
+    level = 1;
 
     fireBulletTimerDefault = 100;
     fireBulletTimer = this.fireBulletTimerDefault;
 
-    moveDownTimerDefault = 30;
+    moveDownTimerDefault = 15;
     moveDownTimer =this.moveDownTimerDefault;
 
     invadersMap = [
@@ -147,5 +148,9 @@ export default class InvaderController {
 
     collideWith(sprite) {
         return this.invadersRows.flat().some((invader) => invader.collideWith(sprite));
-      }
+    }
+    updateLevel(){
+        this.level++;
+        document.querySelector("#level").innerHTML = this.level;
+    }
 }
